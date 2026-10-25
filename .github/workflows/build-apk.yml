@@ -17,6 +17,9 @@ jobs:
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
+      - name: Accept Android SDK Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
       - run: flutter create . --project-name report_viewer
       - run: flutter pub get
       - run: flutter build apk --release
